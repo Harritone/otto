@@ -65,6 +65,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.3)
+    cocoon (1.2.15)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
     erubi (1.10.0)
@@ -147,6 +148,9 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    simple_form (5.1.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -183,6 +187,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  cocoon
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -190,6 +195,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3)
   sass-rails (>= 6)
+  simple_form
   spring
   turbolinks (~> 5)
   tzinfo-data
