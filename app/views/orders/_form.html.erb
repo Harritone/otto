@@ -1,0 +1,35 @@
+<%= simple_form_for @order do |f| %>
+  <% if order.errors.any? %>
+    <div class="card border-danger">
+      <h3 class="card-header bg-danger text-white"><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <ul class="mb-0 list-group list-group-flush">
+        <% order.errors.each do |error| %>
+          <li class="list-group-item"><%= error.message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="fields">
+    <h4 class="text-center">Customer:</h4>
+    <%= simple_fields_for :customer, url: orders_path do |c| %>
+      <%= c.input :id%>
+      <%= c.input :first_name %>
+      <%= c.input :last_name %>
+      <%= c.input :zipcode %>
+    <% end %>
+  </div>
+  <hr>
+  <div class="fields">
+    <h4 class="text-center">Products:</h4>
+    <%= f.simple_fields_for :order_products do |builder| %>
+      <%= render 'order_product_fields', f: builder %>
+    <% end %>
+  </div>
+  <div class="links my-2">
+    <%= link_to_add_association 'add product', f, :order_products, class: 'btn btn-sm btn-outline-success' %>
+  </div>
+</div>
+<div class="actions ml-3">
+  <%= f.submit 'Create Order', class: 'btn btn-sm btn-success' %>
+</div>
+<% end %>

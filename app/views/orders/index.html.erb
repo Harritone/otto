@@ -1,0 +1,17 @@
+<h1 class="text-center">Orders listing </h1>
+<div class="row-mb-2 ml-4">
+  <%= link_to 'New Order', new_order_path, class: 'btn btn-lg btn-outline-success' %>
+</div>
+<div class="col-md-10">
+  <div class="container-fluid content-row">
+    <div class="row">
+      <% @orders.each do |order| %>
+        <div class="col-sm-12 col-lg-4 my-4">
+          <div class="card h-100 text-center">
+            <%= render 'order', order: order %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
