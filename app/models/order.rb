@@ -7,8 +7,6 @@ class Order < ApplicationRecord
   scope :last_week, -> { where(created_at: (Time.now - 7.day)..Time.now) }
 
   def has_products?
-    unless products.size > 0
-      false
-    end
+    self.order_products.any? ? true : false
   end
 end
